@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ops! Algo deu errado</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #f8f9fa; }
+        h1 { color: #dc3545; }
+        .box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: inline-block; }
+        a { color: #007bff; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h1>Ocorreu um erro.</h1>
+    <p>Não foi possível processar sua solicitação.</p>
+
+    <p th:if="${message}" th:text="${message}" style="color: #666;"></p>
+
+    <br>
+    <a href="/">Voltar para o Início</a>
+</div>
+</body>
+</html>
