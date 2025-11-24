@@ -28,7 +28,7 @@ public class SistemaEstoqueTest {
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--start-maximized"); // Abre a janela grande
+        options.addArguments("--headless=new");
 
         driver = new ChromeDriver(options);
         pagina = new EstoquePage(driver);

@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ProdutoController {
 
-    private final EstoqueService service;
+    private final IProdutoService service;
 
-    public ProdutoController(EstoqueService service) {
+    public ProdutoController(IProdutoService service) {
         this.service = service;
     }
 
