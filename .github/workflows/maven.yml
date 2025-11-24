@@ -1,4 +1,4 @@
-name: Integração Contínua (CI) - TP4
+name: Pipeline DevOps TP5 (Final)
 
 on:
   push:
@@ -7,26 +7,35 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-and-test:
+  build-test-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do código
+      - name: 1. Checkout do Código
         uses: actions/checkout@v4
 
-      - name: Configurar JDK 17
+      - name: 2. Configurar Java 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
 
-      - name: Build e Testes com Maven
-        run: mvn -B package --file pom.xml
+      - name: 3. Executar Testes Automatizados (Logs Personalizados)
+        run: |
+          echo ">>> [TP5] INICIANDO SUITE DE TESTES..."
+          mvn -B test --file pom.xml
+          echo ">>> [TP5] TESTES FINALIZADOS COM SUCESSO!"
 
-      - name: Publicar Relatório de Testes
-        if: failure()
+      - name: 4. Gerar Executável .jar
+        run: |
+          echo ">>> [TP5] INICIANDO BUILD DO ARTEFATO..."
+          mvn -B package -DskipTests --file pom.xml
+          echo ">>> [TP5] BUILD CONCLUÍDO!"
+
+      - name: 5. Publicar Artefato (Deploy)
         uses: actions/upload-artifact@v4
         with:
-          name: test-results
-          path: target/surefire-reports/
+          name: sistema-estoque-executavel
+          path: target/*.jar
+          retention-days: 5
