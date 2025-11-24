@@ -1,6 +1,5 @@
 package br.com.tp1.page;
 
-import br.com.tp1.page.EstoquePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -28,6 +27,7 @@ public class SistemaEstoqueTest {
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--start-maximized");
         options.addArguments("--headless=new");
 
         driver = new ChromeDriver(options);
@@ -45,9 +45,9 @@ public class SistemaEstoqueTest {
     public void deveCadastrarProdutoComSucesso() {
         pagina.visitar();
         pagina.clicarEmNovo();
-        pagina.cadastrarProduto("999", "Notebook Ultra Teste", "5000.00", "10");
+        pagina.cadastrarProduto("555", "Produto Headless", "99.90", "2");
 
-        boolean achou = pagina.existeNaTabela("Notebook Ultra Teste");
-        assertTrue(achou, "O produto cadastrado deveria aparecer na tabela!");
+        boolean achou = pagina.existeNaTabela("Produto Headless");
+        assertTrue(achou, "O produto deveria aparecer na tabela (Teste Headless)!");
     }
 }
