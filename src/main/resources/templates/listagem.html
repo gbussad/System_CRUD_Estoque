@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Estoque TP2</title>
+</head>
+<body>
+<h1>Estoque de Produtos</h1>
+<a href="/novo" id="btn-novo">Cadastrar Novo Produto</a>
+<br><br>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th> <th>Nome</th> <th>Preço</th> <th>Qtd</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p : ${produtos}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.nome}"></td>
+        <td th:text="${p.preco}"></td>
+        <td th:text="${p.quantidade}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

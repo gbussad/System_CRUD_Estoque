@@ -1,9 +1,12 @@
 package br.com.tp1.service;
+
 import br.com.tp1.model.Produto;
+import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class EstoqueService {
     private final List<Produto> produtos = new ArrayList<>();
     public void adicionar(Produto produto) {
