@@ -43,5 +43,5 @@ A automação foi configurada no arquivo `maven.yml` e divide-se em 4 estágios 
 * Execute: `mvn test`
 * *Nota:* O Selenium abrirá e fechará o navegador rapidamente (ou rodará em background se configurado como Headless).
 
----
-**Autores:** [Lista de Autores com ORCID]
+### Link para Artigo Científico:  
+* https://www.researchgate.net/publication/398374955_Revisao_Sistematica_de_Literatura_Eficacia_do_Desenvolvimento_Orientado_por_Testes_em_Projetos_e_Design_de_Software 
